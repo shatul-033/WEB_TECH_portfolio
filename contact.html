@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Shatul's Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        /* Define CSS Variables for theming */
+        :root {
+            --theme-color-1: #192734;
+            --theme-color-2: #9d562a;
+            --background-color: #7E4C74;
+            --text-color: #fff;
+        }
+
+        body {
+            background: var(--background-color);
+            color: var(--text-color);
+            font-family: 'Roboto Mono', monospace;
+            background-image: linear-gradient(to right, var(--theme-color-1), var(--theme-color-2));
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.6;
+        }
+
+        .contact-content {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 3rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(45deg, #fff, #f0f8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-subtitle {
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .contact-cards {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            min-width: 200px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .contact-card h4 {
+            margin-bottom: 0.5rem;
+            color: #fff;
+            font-size: 1.2rem;
+        }
+
+        .contact-card p {
+            opacity: 0.9;
+        }
+
+        .contact-card a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+
+        .contact-card a:hover {
+            color: var(--theme-color-1);
+        }
+
+        .contact-card i {
+            font-size: 1.2rem;
+        }
+
+        /* Animation Styles */
+        .animate-in {
+            opacity: 0;
+            transform: translateY(50px);
+            animation: slideInUp 0.8s ease-out forwards;
+        }
+
+        .animate-fade {
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .animate-slide-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: slideInLeft 0.8s ease-out forwards;
+        }
+
+        .animate-slide-right {
+            opacity: 0;
+            transform: translateX(50px);
+            animation: slideInRight 0.8s ease-out forwards;
+        }
+
+        .animate-scale {
+            opacity: 0;
+            transform: scale(0.8);
+            animation: scaleIn 0.8s ease-out forwards;
+        }
+
+        .animate-bounce {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: bounceIn 1s ease-out forwards;
+        }
+
+        .animate-flip {
+            opacity: 0;
+            transform: perspective(1000px) rotateY(90deg);
+            animation: flipIn 0.8s ease-out forwards;
+        }
+
+        .animate-zoom {
+            opacity: 0;
+            transform: scale(0.5);
+            animation: zoomIn 0.8s ease-out forwards;
+        }
+
+        .animate-rotate {
+            opacity: 0;
+            transform: rotate(180deg) scale(0.8);
+            animation: rotateIn 0.8s ease-out forwards;
+        }
+
+        .animate-pulse {
+            opacity: 0;
+            animation: pulseIn 1.2s ease-out forwards;
+        }
+
+        /* Keyframe Animations */
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes slideInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: translateY(30px) scale(0.9);
+            }
+            60% {
+                opacity: 1;
+                transform: translateY(-10px) scale(1.05);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes flipIn {
+            to {
+                opacity: 1;
+                transform: perspective(1000px) rotateY(0deg);
+            }
+        }
+
+        @keyframes zoomIn {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes rotateIn {
+            to {
+                opacity: 1;
+                transform: rotate(0deg) scale(1);
+            }
+        }
+
+        @keyframes pulseIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            50% {
+                opacity: 0.8;
+                transform: scale(1.1);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Typing Animation for Title */
+        .typing-animation {
+            overflow: hidden;
+            border-right: 3px solid #fff;
+            white-space: nowrap;
+            animation: typing 2s steps(13) forwards, blink 1s infinite;
+            width: 0;
+            display: inline-block;
+        }
+
+        @keyframes typing {
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
+        }
+
+        /* Floating animation enhancement */
+        .floating-elements .floating-circle {
+            opacity: 0;
+            animation: floatIn 2s ease-out forwards;
+        }
+
+        @keyframes floatIn {
+            to {
+                opacity: 0.6;
+            }
+        }
+
+        /* Navigation animation */
+        .nav-item {
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: navSlideIn 0.6s ease-out forwards;
+        }
+
+        @keyframes navSlideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Contact card hover effects enhanced */
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+            opacity: 0;
+        }
+
+        .contact-card:hover::before {
+            animation: shine 0.6s ease-out;
+        }
+
+        @keyframes shine {
+            0% {
+                transform: translateX(-100%) translateY(-100%) rotate(45deg);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(100%) translateY(100%) rotate(45deg);
+                opacity: 0;
+            }
+        }
+
+        /* Card icons pulse animation */
+        .contact-card i {
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover i {
+            transform: scale(1.2);
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1.2);
+            }
+            50% {
+                transform: scale(1.4);
+            }
+        }
+
+        /* Navigation item delays */
+        .nav-item:nth-child(1) { animation-delay: 0.1s; }
+        .nav-item:nth-child(2) { animation-delay: 0.2s; }
+        .nav-item:nth-child(3) { animation-delay: 0.3s; }
+        .nav-item:nth-child(4) { animation-delay: 0.4s; }
+        .nav-item:nth-child(5) { animation-delay: 0.5s; }
+
+        /* Floating circles delays */
+        .floating-circle:nth-child(1) { animation-delay: 0.5s; }
+        .floating-circle:nth-child(2) { animation-delay: 1s; }
+        .floating-circle:nth-child(3) { animation-delay: 1.5s; }
+        .floating-circle:nth-child(4) { animation-delay: 2s; }
+
+        .theme-button {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+
+        .theme-button:hover {
+            border-color: #fff;
+        }
+
+        .theme-button.default { background: linear-gradient(45deg, #667eea, #764ba2); }
+        .theme-button.ocean { background: linear-gradient(45deg, #2a9d8f, #264653); }
+        .theme-button.sunset { background: linear-gradient(45deg, #e76f51, #f4a261); }
+        .theme-button.forest { background: linear-gradient(45deg, #588157, #3a5a40); }
+
+        @media (max-width: 768px) {
+            .nav-items {
+                gap: 1rem;
+            }
+
+            .nav-item span {
+                display: none;
+            }
+
+            .contact-content {
+                padding: 2rem 1rem;
+            }
+
+            .contact-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-elements">
+        <div class="floating-circle" style="width: 100px; height: 100px; top: 10%; left: 10%;"></div>
+        <div class="floating-circle" style="width: 150px; height: 150px; top: 20%; right: 10%;"></div>
+        <div class="floating-circle" style="width: 80px; height: 80px; bottom: 20%; left: 20%;"></div>
+        <div class="floating-circle" style="width: 120px; height: 120px; bottom: 10%; right: 20%;"></div>
+    </div>
+
+    <nav>
+        <div class="nav-container">
+            <ul class="nav-items">
+                <li class="nav-item">
+                    <a href="home.html">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                        </svg>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                        </svg>
+                        <span>About</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="projects.html">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                        </svg>
+                        <span>Projects</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="resume.html">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                        </svg>
+                        <span>Resume</span>
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a href="contact.html">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                        <span>Contact</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="theme-switcher animate-fade" style="animation-delay: 0.8s;">
+               <div class="theme-button default" data-color="#192734,#192734"></div>
+                <div class="theme-button ocean" data-color="#9d562a,#264653"></div>
+                <div class="theme-button sunset" data-color="#7E4C74,#320128"></div>
+                <div class="theme-button forest" data-color="#588157,#3a5a40"></div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="content">
+            <div class="contact-content animate-in" style="animation-delay: 0.3s;">
+                <h2 class="page-title typing-animation" style="animation-delay: 1s;">Get In Touch</h2>
+                <p class="page-subtitle animate-bounce" style="animation-delay: 1.8s;">Let's create something amazing together!</p>
+                <div class="contact-cards">
+                    <div class="contact-card animate-flip" style="animation-delay: 2.4s;">
+                        <h4 class="animate-scale" style="animation-delay: 2.8s;">📧 Email</h4>
+                        <p class="animate-fade" style="animation-delay: 3s;"><a href="mailto:shatulusha92@gmail.com" target="_blank"><i class="fas fa-envelope"></i> shatulusha92@gmail.com</a></p>
+                    </div>
+                    <div class="contact-card animate-zoom" style="animation-delay: 3.4s;">
+                        <h4 class="animate-scale" style="animation-delay: 3.8s;">💼 LinkedIn</h4>
+                        <p class="animate-fade" style="animation-delay: 4s;"><a href="https://www.linkedin.com/in/shatul-2021831033/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn Profile</a></p>
+                    </div>
+                    <div class="contact-card animate-rotate" style="animation-delay: 4.4s;">
+                        <h4 class="animate-scale" style="animation-delay: 4.8s;">🐙 GitHub</h4>
+                        <p class="animate-fade" style="animation-delay: 5s;"><a href="https://github.com/shatul-033" target="_blank"><i class="fab fa-github"></i> github.com/shatul-033</a></p>
+                    </div>
+                    <div class="contact-card animate-pulse" style="animation-delay: 5.4s;">
+                        <h4 class="animate-scale" style="animation-delay: 5.8s;">🐦 Twitter</h4>
+                        <p class="animate-fade" style="animation-delay: 6s;"><a href="https://x.com/ShatulM87468" target="_blank"><i class="fab fa-twitter"></i> @ShatulM87468</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer animate-fade" style="animation-delay: 6.5s;">
+        <div class="footer-container">
+            <div class="social-icons">
+                <a href="https://www.facebook.com/share/16z9751Soh/" target="_blank" class="animate-scale" style="animation-delay: 7s;">
+                    <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M22.675 0H1.325C.594 0 0 .594 0 1.325v21.351C0 23.406.594 24 1.325 24h11.455v-8.356H9.569v-3.837h3.211V9.92c0-3.176 1.938-4.908 4.766-4.908 1.365 0 2.54.102 2.889.148v3.351h-1.98c-1.564 0-1.871.745-1.871 1.832v2.417h3.723l-.601 3.837h-3.122V24h6.111C23.406 24 24 23.406 24 22.675V1.325C24 .594 23.406 0 22.675 0z"/>
+                    </svg>
+                </a>
+                <a href="https://x.com/ShatulM87468" target="_blank" class="animate-scale" style="animation-delay: 7.2s;">
+                    <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.799-1.574 2.16-2.72-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-2.715 0-4.92 2.205-4.92 4.92 0 .385.045.758.13.993-4.09-.205-7.72-2.165-10.15-5.147-.424.729-.667 1.575-.667 2.483 0 1.708.87 3.215 2.19 4.095-.807-.025-1.569-.247-2.228-.616v.062c0 2.38 1.696 4.364 3.947 4.815-.41.111-.843.17-1.288.17-.315 0-.62-.031-.918-.088.625 1.956 2.445 3.38 4.604 3.42-1.685 1.321-3.81 2.112-6.113 2.112-.398 0-.79-.023-1.175-.069C1.97 22.316 4.35 23 6.945 23c8.337 0 12.893-6.91 12.893-12.894 0-.196-.005-.39-.013-.585.888-.64 1.657-1.43 2.269-2.338z"/>
+                    </svg>
+                </a>
+                <a href="https://linkedin.com" target="_blank" class="animate-scale" style="animation-delay: 7.4s;">
+                    <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.447 20.452h-3.554v-5.48c0-1.312-.472-2.213-1.658-2.213-1.593 0-2.544 1.205-2.544 2.368v5.325H9.139V9h3.42v1.583h.05c.472-.733 1.29-1.787 3.197-1.787 2.17 0 3.864 1.42 3.864 4.475v6.581zM5.992 7.73c-1.26 0-2.078-.857-2.078-1.922 0-1.09.84-1.923 2.11-1.923s2.078.833 2.11 1.923c0 1.065-.85 1.922-2.142 1.922zm1.758 12.722H4.234V9H7.75V20.452h-.001zM22.25 0H1.75C.784 0 0 .784 0 1.75v20.5C0 23.216.784 24 1.75 24h20.5C23.216 24 24 23.216 24 22.25V1.75C24 .784 23.216 0 22.25 0z"/>
+                    </svg>
+                </a>
+                <a href="https://github.com/shatul-033" target="_blank" class="animate-scale" style="animation-delay: 7.6s;">
+                    <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0C5.373 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.6.11 1.02-.258 1.02-.577 0-.285-.01-1.04-.015-2.04-3.338.725-4.043-1.61-4.043-1.61-.546-1.387-1.332-1.757-1.332-1.757-1.09-.746.082-.73.082-.73 1.205.085 1.838 1.237 1.838 1.237 1.07 1.83 2.808 1.3 3.49.993.109-.773.42-1.3.762-1.597-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.124-.303-.537-1.52.117-3.175 0 0 1.008-.323 3.301 1.23.957-.266 1.983-.4 3.01-.405 1.025.005 2.05.139 3.01.405 2.29-1.553 3.298-1.23 3.298-1.23.655 1.655.242 2.872.118 3.175.772.84 1.234 1.91 1.234 3.22 0 4.61-2.805 5.625-5.475 5.92-.41.354-.79.91-.79 1.84 0 1.33.01 2.404.01 2.723 0 .32.413.693 1.028.577C20.565 22.18 24 17.68 24 12c0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+            </div>
+            <p class="copyright animate-fade" style="animation-delay: 7.8s;">© 2025 Shatul Usha. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Get all theme buttons
+        const themeButtons = document.querySelectorAll('.theme-button');
+
+        // Add a click event listener to each button
+        themeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Get the color values from the data-color attribute
+                const colors = button.getAttribute('data-color').split(',');
+                const color1 = colors[0];
+                const color2 = colors[1];
+
+                // Get the root element (where the CSS variables are defined)
+                const root = document.documentElement;
+
+                // Update the CSS variables with the new colors
+                root.style.setProperty('--theme-color-1', color1);
+                root.style.setProperty('--theme-color-2', color2);
+
+                // Update the theme of the page content
+                document.body.style.backgroundImage = `linear-gradient(to right, ${color1}, ${color2})`;
+            });
+        });
+
+        // The rest of your existing JavaScript code follows...
+
+        // Enhanced animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('[class*="animate-"]').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Theme switcher animation (This part is already in your code, just re-ordering)
+        document.querySelectorAll('.theme-button').forEach((button, index) => {
+            button.style.animationDelay = `${0.9 + (index * 0.1)}s`;
+            button.classList.add('animate-scale');
+        });
+
+        // Enhanced contact card interactions
+        document.querySelectorAll('.contact-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px) scale(1.05)';
+                card.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.3)';
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) scale(1)';
+                card.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.2)';
+            });
+
+            // Add click ripple effect
+            card.addEventListener('click', (e) => {
+                const ripple = document.createElement('div');
+                ripple.style.position = 'absolute';
+                ripple.style.borderRadius = '50%';
+                ripple.style.background = 'rgba(255, 255, 255, 0.3)';
+                ripple.style.transform = 'scale(0)';
+                ripple.style.animation = 'ripple 0.6s linear';
+                const rect = card.getBoundingClientRect();
+                ripple.style.left = (e.clientX - rect.left - 25) + 'px';
+                ripple.style.top = (e.clientY - rect.top - 25) + 'px';
+                ripple.style.width = ripple.style.height = '50px';
+                card.appendChild(ripple);
+
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+
+        // Add ripple keyframe if not exists
+        if (!document.querySelector('#ripple-style')) {
+            const style = document.createElement('style');
+            style.id = 'ripple-style';
+            style.innerHTML = `
+                @keyframes ripple {
+                    to {
+                        transform: scale(4);
+                        opacity: 0;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+    </script>
+</body>
+</html>

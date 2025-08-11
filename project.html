@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Shatul's Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        /* Your existing CSS code */
+        /* ... (all the CSS you provided) ... */
+        :root {
+            --background-color: linear-gradient(45deg, #667eea, #764ba2);
+            --text-color: #fff;
+            --card-background: rgba(255, 255, 255, 0.1);
+            --card-border: rgba(255, 255, 255, 0.2);
+            --tech-tag-background: rgba(255, 255, 255, 0.2);
+            --tech-tag-border: rgba(255, 255, 255, 0.3);
+            --button-background: linear-gradient(45deg, #667eea, #764ba2);
+        }
+
+        body {
+            background: var(--background-color);
+            color: var(--text-color);
+            transition: background 0.5s ease-in-out;
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(45deg, #fff, #f0f8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: var(--card-background);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--card-border);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .project-card p {
+            opacity: 0.9;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-tag {
+            background: var(--tech-tag-background);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            border: 1px solid var(--tech-tag-border);
+        }
+
+        .btn {
+            background: var(--button-background);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        /* The rest of your animation keyframes and media queries */
+        /* ... (all the CSS you provided) ... */
+        .theme-button.default {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+        }
+        .theme-button.ocean {
+            background: linear-gradient(45deg, #2a9d8f, #264653);
+        }
+        .theme-button.sunset {
+            background: linear-gradient(45deg, #e76f51, #f4a261);
+        }
+        .theme-button.forest {
+            background: linear-gradient(45deg, #588157, #3a5a40);
+        }
+
+        /* Animation Styles */
+        .animate-in { opacity: 0; transform: translateY(50px); animation: slideInUp 0.8s ease-out forwards; }
+        .animate-fade { opacity: 0; animation: fadeIn 1s ease-out forwards; }
+        .animate-slide-left { opacity: 0; transform: translateX(-50px); animation: slideInLeft 0.8s ease-out forwards; }
+        .animate-slide-right { opacity: 0; transform: translateX(50px); animation: slideInRight 0.8s ease-out forwards; }
+        .animate-scale { opacity: 0; transform: scale(0.8); animation: scaleIn 0.8s ease-out forwards; }
+        .animate-bounce { opacity: 0; transform: translateY(30px); animation: bounceIn 1s ease-out forwards; }
+        .animate-flip { opacity: 0; transform: perspective(1000px) rotateY(90deg); animation: flipIn 0.8s ease-out forwards; }
+        .animate-zoom { opacity: 0; transform: scale(0.5); animation: zoomIn 0.8s ease-out forwards; }
+        @keyframes slideInUp { to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { to { opacity: 1; } }
+        @keyframes slideInLeft { to { opacity: 1; transform: translateX(0); } }
+        @keyframes slideInRight { to { opacity: 1; transform: translateX(0); } }
+        @keyframes scaleIn { to { opacity: 1; transform: scale(1); } }
+        @keyframes bounceIn { 0% { opacity: 0; transform: translateY(30px) scale(0.9); } 60% { opacity: 1; transform: translateY(-10px) scale(1.05); } 100% { opacity: 1; transform: translateY(0) scale(1); } }
+        @keyframes flipIn { to { opacity: 1; transform: perspective(1000px) rotateY(0deg); } }
+        @keyframes zoomIn { to { opacity: 1; transform: scale(1); } }
+        .typing-animation { overflow: hidden; border-right: 3px solid #fff; white-space: nowrap; animation: typing 2s steps(12) forwards, blink 1s infinite; width: 0; }
+        @keyframes typing { to { width: 100%; } }
+        @keyframes blink { 50% { border-color: transparent; } }
+        .floating-elements .floating-circle { opacity: 0; animation: floatIn 2s ease-out forwards; }
+        @keyframes floatIn { to { opacity: 0.6; } }
+        .nav-item { opacity: 0; transform: translateY(-20px); animation: navSlideIn 0.6s ease-out forwards; }
+        @keyframes navSlideIn { to { opacity: 1; transform: translateY(0); } }
+        .project-card { position: relative; overflow: hidden; }
+        .project-card::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent); transform: rotate(45deg); transition: all 0.6s ease; opacity: 0; }
+        .project-card:hover::before { animation: shine 0.6s ease-out; }
+        @keyframes shine { 0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); opacity: 0; } 50% { opacity: 1; } 100% { transform: translateX(100%) translateY(100%) rotate(45deg); opacity: 0; } }
+        .tech-tag { opacity: 0; transform: scale(0.8); animation: tagPopIn 0.4s ease-out forwards; }
+        @keyframes tagPopIn { to { opacity: 1; transform: scale(1); } }
+        .btn { opacity: 0; transform: translateY(20px); animation: buttonSlideUp 0.6s ease-out forwards; }
+        @keyframes buttonSlideUp { to { opacity: 1; transform: translateY(0); } }
+        .nav-item:nth-child(1) { animation-delay: 0.1s; }
+        .nav-item:nth-child(2) { animation-delay: 0.2s; }
+        .nav-item:nth-child(3) { animation-delay: 0.3s; }
+        .nav-item:nth-child(4) { animation-delay: 0.4s; }
+        .nav-item:nth-child(5) { animation-delay: 0.5s; }
+        .floating-circle:nth-child(1) { animation-delay: 0.5s; }
+        .floating-circle:nth-child(2) { animation-delay: 1s; }
+        .floating-circle:nth-child(3) { animation-delay: 1.5s; }
+        .floating-circle:nth-child(4) { animation-delay: 2s; }
+        @media (max-width: 768px) {
+            .nav-items { gap: 1rem; }
+            .nav-item span { display: none; }
+            .page-title { font-size: 2rem; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .project-card { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-elements">
+        <div class="floating-circle" style="width: 100px; height: 100px; top: 10%; left: 10%;"></div>
+        <div class="floating-circle" style="width: 150px; height: 150px; top: 20%; right: 10%;"></div>
+        <div class="floating-circle" style="width: 80px; height: 80px; bottom: 20%; left: 20%;"></div>
+        <div class="floating-circle" style="width: 120px; height: 120px; bottom: 10%; right: 20%;"></div>
+    </div>
+
+    <nav>
+        <div class="nav-container">
+            <ul class="nav-items">
+                <li class="nav-item">
+                    <a href="home.html">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                        </svg>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                        </svg>
+                        <span>About</span>
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a href="project.html">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                        </svg>
+                        <span>Projects</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="resume.html">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                        </svg>
+                        <span>Resume</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                        <span>Contact</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="theme-switcher animate-fade" style="animation-delay: 0.8s;">
+               <div class="theme-button default" data-color="#192734,#192734"></div>
+                <div class="theme-button ocean" data-color="#9d562a,#264653"></div>
+                <div class="theme-button sunset" data-color="#7E4C74,#320128"></div>
+                <div class="theme-button forest" data-color="#588157,#3a5a40"></div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="content">
+            <h2 class="page-title typing-animation animate-bounce" style="animation-delay: 1s;">My Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card animate-flip" style="animation-delay: 1.8s;">
+                    <h3 class="animate-slide-right" style="animation-delay: 2.2s;">Coffee Shop</h3>
+                    <p class="animate-fade" style="animation-delay: 2.4s;">A full-featured online shopping platform with user authentication, payment integration, and admin dashboard. Built with modern technologies for optimal performance.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag" style="animation-delay: 2.6s;">Kotlin</span>
+                        <span class="tech-tag" style="animation-delay: 2.8s;">Firebase</span>
+                    </div>
+                    <a href="https://github.com/shatul-033/CoffeeShop" target="_blank" class="btn" style="animation-delay: 3s;">
+                        <i class="fab fa-github"></i>
+                        View on GitHub
+                    </a>
+                </div>
+
+                <div class="project-card animate-scale" style="animation-delay: 3.4s;">
+                    <h3 class="animate-slide-left" style="animation-delay: 3.8s;">Snake Game</h3>
+                    <p class="animate-fade" style="animation-delay: 4s;">A classic arcade-style game where the player controls a snake to eat food, grow longer, and avoid colliding with walls or itself. Features simple controls, increasing difficulty, and engaging, retro gameplay mechanics.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag" style="animation-delay: 4.2s;">SDL</span>
+                        <span class="tech-tag" style="animation-delay: 4.4s;">JAVA</span>
+                        <span class="tech-tag" style="animation-delay: 4.6s;">C++</span>
+                    </div>
+                    <a href="https://github.com/shatul-033/snake-2021831033" target="_blank" class="btn" style="animation-delay: 4.8s;">
+                        <i class="fab fa-github"></i>
+                        View on GitHub
+                    </a>
+                </div>
+
+                <div class="project-card animate-zoom" style="animation-delay: 5.2s;">
+                    <h3 class="animate-slide-right" style="animation-delay: 5.6s;">Blackjack</h3>
+                    <p class="animate-fade" style="animation-delay: 5.8s;">A feature-rich Java Swing Blackjack game with interactive GUI, sound effects, animations, and rule-based gameplay logic. Supports betting, score tracking, and realistic card dealing for an engaging casino-like experience.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag" style="animation-delay: 6s;">Java</span>
+                    </div>
+                    <a href="https://github.com/shatul-033/BlackJack" target="_blank" class="btn" style="animation-delay: 6.2s;">
+                        <i class="fab fa-github"></i>
+                        View on GitHub
+                    </a>
+                </div>
+
+                <div class="project-card animate-in" style="animation-delay: 6.6s;">
+                    <h3 class="animate-slide-left" style="animation-delay: 7s;">Stop Watch</h3>
+                    <p class="animate-fade" style="animation-delay: 7.2s;">A simple time-tracking application that allows users to start, pause, and reset a stopwatch, with precise time measurement and a clear, user-friendly interface.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag" style="animation-delay: 7.4s;">JavaScript</span>
+                    </div>
+                    <a href="https://github.com/shatul-033/StopWatch" target="_blank" class="btn" style="animation-delay: 7.6s;">
+                        <i class="fab fa-github"></i>
+                        View on GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer animate-fade" style="animation-delay: 8s;">
+        <div class="footer-container">
+            <div class="social-icons">
+                <a href="https://www.facebook.com/share/16z9751Soh/" target="_blank" class="animate-scale" style="animation-delay: 8.4s;">
+                    <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M22.675 0H1.325C.594 0 0 .594 0 1.325v21.351C0 23.406.594 24 1.325 24h11.455v-8.356H9.569v-3.837h3.211V9.92c0-3.176 1.938-4.908 4.766-4.908 1.365 0 2.54.102 2.889.148v3.351h-1.98c-1.564 0-1.871.745-1.871 1.832v2.417h3.723l-.601 3.837h-3.122V24h6.111C23.406 24 24 23.406 24 22.675V1.325C24 .594 23.406 0 22.675 0z"/>
+                    </svg>
+                </a>
+                <a href="https://x.com/ShatulM87468" target="_blank" class="animate-scale" style="animation-delay: 8.6s;">
+                    <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.799-1.574 2.16-2.72-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-2.715 0-4.92 2.205-4.92 4.92 0 .385.045.758.13.993-4.09-.205-7.72-2.165-10.15-5.147-.424.729-.667 1.575-.667 2.483 0 1.708.87 3.215 2.19 4.095-.807-.025-1.569-.247-2.228-.616v.062c0 2.38 1.696 4.364 3.947 4.815-.41.111-.843.17-1.288.17-.315 0-.62-.031-.918-.088.625 1.956 2.445 3.38 4.604 3.42-1.685 1.321-3.81 2.112-6.113 2.112-.398 0-.79-.023-1.175-.069C1.97 22.316 4.35 23 6.945 23c8.337 0 12.893-6.91 12.893-12.894 0-.196-.005-.39-.013-.585.888-.64 1.657-1.43 2.269-2.338z"/>
+                    </svg>
+                </a>
+                <a href="https://linkedin.com" target="_blank" class="animate-scale" style="animation-delay: 8.8s;">
+                    <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.447 20.452h-3.554v-5.48c0-1.312-.472-2.213-1.658-2.213-1.593 0-2.544 1.205-2.544 2.368v5.325H9.139V9h3.42v1.583h.05c.472-.733 1.29-1.787 3.197-1.787 2.17 0 3.864 1.42 3.864 4.475v6.581zM5.992 7.73c-1.26 0-2.078-.857-2.078-1.922 0-1.09.84-1.923 2.11-1.923s2.078.833 2.11 1.923c0 1.065-.85 1.922-2.142 1.922zm1.758 12.722H4.234V9H7.75V20.452h-.001zM22.25 0H1.75C.784 0 0 .784 0 1.75v20.5C0 23.216.784 24 1.75 24h20.5C23.216 24 24 23.216 24 22.25V1.75C24 .784 23.216 0 22.25 0z"/>
+                    </svg>
+                </a>
+                <a href="https://github.com/shatul-033" target="_blank" class="animate-scale" style="animation-delay: 9s;">
+                    <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0C5.373 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.6.11 1.02-.258 1.02-.577 0-.285-.01-1.04-.015-2.04-3.338.725-4.043-1.61-4.043-1.61-.546-1.387-1.332-1.757-1.332-1.757-1.09-.746.082-.73.082-.73 1.205.085 1.838 1.237 1.838 1.237 1.07 1.83 2.808 1.3 3.49.993.109-.773.42-1.3.762-1.597-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.124-.303-.537-1.52.117-3.175 0 0 1.008-.323 3.301 1.23.957-.266 1.983-.4 3.01-.405 1.025.005 2.05.139 3.01.405 2.29-1.553 3.298-1.23 3.298-1.23.655 1.655.242 2.872.118 3.175.772.84 1.234 1.91 1.234 3.22 0 4.61-2.805 5.625-5.475 5.92-.41.354-.79.91-.79 1.84 0 1.33.01 2.404.01 2.723 0 .32.413.693 1.028.577C20.565 22.18 24 17.68 24 12c0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+            </div>
+            <p class="copyright animate-fade" style="animation-delay: 9.2s;">© 2025 Shatul Usha. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Enhanced animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('[class*="animate-"]').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Theme switcher animation
+        document.querySelectorAll('.theme-button').forEach((button, index) => {
+            button.style.animationDelay = `${0.9 + (index * 0.1)}s`;
+            button.classList.add('animate-scale');
+        });
+
+        // --- Corrected Code for Theme Switching ---
+        const themeButtons = document.querySelectorAll('.theme-button');
+        const root = document.documentElement;
+
+        themeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const colors = button.getAttribute('data-color').split(',');
+                root.style.setProperty('--background-color', `linear-gradient(45deg, ${colors[0]}, ${colors[1]})`);
+                root.style.setProperty('--button-background', `linear-gradient(45deg, ${colors[0]}, ${colors[1]})`);
+
+                // Update the project card's background and border colors
+                // This ensures consistency across the site
+                const cardBackgroundColor = `rgba(${parseInt(colors[0].slice(1, 3), 16)}, ${parseInt(colors[0].slice(3, 5), 16)}, ${parseInt(colors[0].slice(5, 7), 16)}, 0.1)`;
+                const cardBorderColor = `rgba(${parseInt(colors[0].slice(1, 3), 16)}, ${parseInt(colors[0].slice(3, 5), 16)}, ${parseInt(colors[0].slice(5, 7), 16)}, 0.2)`;
+                const techTagBackgroundColor = `rgba(${parseInt(colors[0].slice(1, 3), 16)}, ${parseInt(colors[0].slice(3, 5), 16)}, ${parseInt(colors[0].slice(5, 7), 16)}, 0.2)`;
+                const techTagBorderColor = `rgba(${parseInt(colors[0].slice(1, 3), 16)}, ${parseInt(colors[0].slice(3, 5), 16)}, ${parseInt(colors[0].slice(5, 7), 16)}, 0.3)`;
+
+                root.style.setProperty('--card-background', cardBackgroundColor);
+                root.style.setProperty('--card-border', cardBorderColor);
+                root.style.setProperty('--tech-tag-background', techTagBackgroundColor);
+                root.style.setProperty('--tech-tag-border', techTagBorderColor);
+
+                // Optional: You can also change text color based on the theme
+                // For example, for a dark theme, you might want white text, and for a light theme, black text.
+                // You can add a `data-theme-type="dark"` attribute to your buttons for this.
+            });
+        });
+    </script>
+</body>
+</html>
